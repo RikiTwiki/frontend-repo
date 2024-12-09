@@ -27,6 +27,9 @@
             password: this.password,
           });
           localStorage.setItem('authToken', response.data.token); // Сохраняем токен
+
+          this.$store.dispatch('updateAuthState', true);
+
           this.$router.push('/'); // Перенаправляем на главную страницу
         } catch (error) {
           alert('Login failed: ' + error.response.data.message);

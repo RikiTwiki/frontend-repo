@@ -3,6 +3,8 @@ import App from './App.vue';
 import router from './router/router';
 import axios from 'axios';
 
+import store from './store/store';
+
 // Настройка Axios
 axios.defaults.baseURL = 'http://localhost:3000/api';
 axios.interceptors.request.use(
@@ -24,6 +26,8 @@ app.config.globalProperties.$axios = axios;
 
 // Использование vue-router
 app.use(router);
+
+app.use(store);
 
 // Монтирование приложения
 app.mount('#app');
