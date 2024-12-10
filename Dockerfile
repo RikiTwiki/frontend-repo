@@ -1,5 +1,10 @@
-# Используем официальный образ Node.js 18
-FROM node:18
+# Используем официальное Ubuntu изображение как базовое
+FROM ubuntu:20.04
+
+# Установка Node.js
+RUN apt-get update && apt-get install -y curl
+RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash -
+RUN apt-get install -y nodejs
 
 # Устанавливаем рабочую директорию
 WORKDIR /usr/src/app
